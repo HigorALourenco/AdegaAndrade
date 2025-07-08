@@ -1,7 +1,8 @@
 import { type NextRequest, NextResponse } from "next/server"
+import type { Region } from "@/lib/api"
 
 // Simulação de banco de dados em memória
-let regions = [
+let regions: Region[] = [
   {
     id: "1",
     name: "Tucuruvi",
@@ -36,7 +37,7 @@ export async function GET() {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const newRegion = {
+    const newRegion: Region = {
       id: Date.now().toString(),
       ...body,
       active: true,

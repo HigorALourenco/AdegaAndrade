@@ -1,6 +1,6 @@
 # 🍷 Adega e Tabacaria Andrade
 
-Sistema completo de e-commerce para adega e tabacaria com painel administrativo integrado.
+Sistema completo de e-commerce para adega e tabacaria com painel administrativo integrado e atualizações em tempo real.
 
 ## 🚀 Funcionalidades
 
@@ -13,7 +13,7 @@ Sistema completo de e-commerce para adega e tabacaria com painel administrativo 
 - Design responsivo para todos os dispositivos
 
 ### 🎛️ **Painel Administrativo**
-- Dashboard com métricas de vendas
+- Dashboard com métricas de vendas em tempo real
 - Gerenciamento completo de produtos
 - Sistema de upload de imagens
 - Controle de regiões de entrega
@@ -32,23 +32,31 @@ Sistema completo de e-commerce para adega e tabacaria com painel administrativo 
 
 ## 🛠️ Tecnologias
 
-- **Next.js 14** - Framework React
+- **Next.js 14** - Framework React com App Router
 - **TypeScript** - Tipagem estática
-- **Tailwind CSS** - Estilização
-- **Shadcn/UI** - Componentes
-- **Lucide React** - Ícones
+- **Tailwind CSS** - Estilização utilitária
+- **Shadcn/UI** - Componentes acessíveis
+- **Lucide React** - Ícones modernos
+- **API Routes** - Backend integrado
 - **Vercel** - Deploy e hospedagem
 
-## 🚀 Deploy
+## 🚀 Deploy Rápido
 
-Este projeto está configurado para deploy automático na Vercel:
+### 1. Clone e Configure
+\`\`\`bash
+git clone https://github.com/seu-usuario/adega-online.git
+cd adega-online
+npm install
+npm run dev
+\`\`\`
 
-1. **Push para GitHub** - Atualizações automáticas
-2. **Build otimizado** - Performance máxima
-3. **CDN global** - Carregamento rápido
-4. **SSL automático** - Segurança garantida
+### 2. Deploy na Vercel
+1. Acesse [vercel.com](https://vercel.com)
+2. Conecte com GitHub
+3. Selecione o repositório
+4. Deploy automático! 🎉
 
-## 📱 Responsividade
+## 📱 Responsividade Total
 
 - **Mobile First** - Otimizado para celulares
 - **Tablet** - Layout adaptativo
@@ -57,9 +65,9 @@ Este projeto está configurado para deploy automático na Vercel:
 
 ## 🔐 Acesso Administrativo
 
-- **URL**: `/admin/login`
-- **Email**: `admin@adega.com`
-- **Senha**: `admin123`
+- **URL**: \`/admin/login\`
+- **Email**: \`admin@adega.com\`
+- **Senha**: \`admin123\`
 
 ## 🎯 Funcionalidades Especiais
 
@@ -68,22 +76,39 @@ Este projeto está configurado para deploy automático na Vercel:
 - **Cálculo automático de frete**
 - **WhatsApp Business integrado**
 - **Sistema de regiões configurável**
+- **APIs REST completas**
+- **Atualizações em tempo real**
 
-## 📊 Analytics
+## 📊 Analytics e Métricas
 
-- Métricas de vendas em tempo real
-- Relatórios por período
+- Vendas em tempo real
 - Produtos mais vendidos
-- Análise por região de entrega
+- Análise por região
+- Relatórios personalizados
 
-## 🔄 Atualizações em Tempo Real
+## 🔄 Atualizações Automáticas
 
-O sistema utiliza localStorage para persistência local e será expandido com:
-- Database em tempo real
-- Sincronização automática
-- Backup na nuvem
-- Multi-usuário
+- **Push para GitHub** → Deploy automático
+- **APIs REST** para sincronização
+- **Estado global** gerenciado
+- **Persistência local** + servidor
+
+## 🌐 URLs Importantes
+
+- **Loja**: \`/\`
+- **Admin**: \`/admin\`
+- **API Produtos**: \`/api/products\`
+- **API Regiões**: \`/api/regions\`
+- **API Pedidos**: \`/api/orders\`
+
+## 📞 Contato
+
+- **WhatsApp**: (11) 94817-4784
+- **Email**: contato@adegaandrade.com
+- **Horário**: Qui-Dom, 18:00-03:00
 
 ---
 
 **Desenvolvido com ❤️ para Adega e Tabacaria Andrade**
+
+🚀 **Deploy em produção**: [adega-andrade.vercel.app](https://adega-andrade.vercel.app)
