@@ -46,9 +46,18 @@ const products: Product[] = [
     category: "energetico",
     volume: "473ml",
   },
-  // Whisky
   {
     id: "3",
+    name: "TNT Energy Drink",
+    price: 6.5,
+    image: "/placeholder.svg?height=200&width=200",
+    description: "Explosão de energia",
+    category: "energetico",
+    volume: "269ml",
+  },
+  // Whisky
+  {
+    id: "4",
     name: "Johnnie Walker Red Label",
     price: 89.9,
     image: "/placeholder.svg?height=200&width=200",
@@ -57,9 +66,82 @@ const products: Product[] = [
     volume: "1L",
     alcohol: "40%",
   },
+  {
+    id: "5",
+    name: "Jack Daniel's",
+    price: 159.9,
+    image: "/placeholder.svg?height=200&width=200",
+    description: "Tennessee Whiskey premium",
+    category: "whisky",
+    volume: "1L",
+    alcohol: "40%",
+  },
+  // Vodka
+  {
+    id: "6",
+    name: "Smirnoff Red",
+    price: 45.9,
+    image: "/placeholder.svg?height=200&width=200",
+    description: "Vodka premium triple destilada",
+    category: "vodka",
+    volume: "998ml",
+    alcohol: "37.5%",
+  },
+  {
+    id: "7",
+    name: "Absolut Original",
+    price: 79.9,
+    image: "/placeholder.svg?height=200&width=200",
+    description: "Vodka sueca premium",
+    category: "vodka",
+    volume: "1L",
+    alcohol: "40%",
+  },
+  // Gin
+  {
+    id: "8",
+    name: "Bombay Sapphire",
+    price: 89.9,
+    image: "/placeholder.svg?height=200&width=200",
+    description: "Gin London Dry premium",
+    category: "gin",
+    volume: "750ml",
+    alcohol: "40%",
+  },
+  {
+    id: "9",
+    name: "Tanqueray",
+    price: 79.9,
+    image: "/placeholder.svg?height=200&width=200",
+    description: "Gin clássico inglês",
+    category: "gin",
+    volume: "750ml",
+    alcohol: "43.1%",
+  },
+  // Cerveja
+  {
+    id: "10",
+    name: "Heineken Long Neck",
+    price: 4.5,
+    image: "/placeholder.svg?height=200&width=200",
+    description: "Cerveja premium holandesa",
+    category: "cerveja",
+    volume: "330ml",
+    alcohol: "5%",
+  },
+  {
+    id: "11",
+    name: "Corona Extra",
+    price: 5.9,
+    image: "/placeholder.svg?height=200&width=200",
+    description: "Cerveja mexicana refrescante",
+    category: "cerveja",
+    volume: "355ml",
+    alcohol: "4.6%",
+  },
   // Essências
   {
-    id: "4",
+    id: "12",
     name: "Essência Adalya Love 66",
     price: 25.0,
     image: "/placeholder.svg?height=200&width=200",
@@ -69,9 +151,20 @@ const products: Product[] = [
     brand: "Adalya",
     flavor: "Love 66",
   },
+  {
+    id: "13",
+    name: "Essência Al Fakher Uva",
+    price: 22.0,
+    image: "/placeholder.svg?height=200&width=200",
+    description: "Sabor clássico de uva doce",
+    category: "essencias",
+    volume: "50g",
+    brand: "Al Fakher",
+    flavor: "Uva",
+  },
   // Carvão
   {
-    id: "5",
+    id: "14",
     name: "Carvão Coconara",
     price: 18.0,
     image: "/placeholder.svg?height=200&width=200",
@@ -80,15 +173,34 @@ const products: Product[] = [
     volume: "1kg",
     brand: "Coconara",
   },
+  {
+    id: "15",
+    name: "Carvão Three Kings",
+    price: 15.0,
+    image: "/placeholder.svg?height=200&width=200",
+    description: "Carvão de acendimento rápido",
+    category: "carvao",
+    volume: "33mm",
+    brand: "Three Kings",
+  },
   // Diversos
   {
-    id: "6",
+    id: "16",
     name: "Piteira de Vidro",
     price: 12.0,
     image: "/placeholder.svg?height=200&width=200",
     description: "Piteira de vidro borosilicato",
     category: "diversos",
     brand: "Premium Glass",
+  },
+  {
+    id: "17",
+    name: "Papel de Seda OCB",
+    price: 3.5,
+    image: "/placeholder.svg?height=200&width=200",
+    description: "Papel de seda premium francês",
+    category: "diversos",
+    brand: "OCB",
   },
 ]
 
@@ -166,18 +278,23 @@ export default function AdegaCardapio() {
 
   const calculateFrete = () => {
     if (cep.length === 8) {
-      const regioesFrete = {
+      const regioesFrete: Record<string, { valor: number; nome: string }> = {
         "02201": { valor: 5.0, nome: "Tucuruvi" },
         "02202": { valor: 5.0, nome: "Tucuruvi" },
+        "02203": { valor: 5.0, nome: "Tucuruvi" },
         "02216": { valor: 7.0, nome: "Vila Medeiros" },
+        "02217": { valor: 7.0, nome: "Vila Medeiros" },
+        "02218": { valor: 7.0, nome: "Vila Medeiros" },
         "02401": { valor: 15.0, nome: "Santana" },
+        "02402": { valor: 15.0, nome: "Santana" },
+        "02403": { valor: 15.0, nome: "Santana" },
       }
 
       const cepRegiao = cep.substring(0, 5)
 
-      if (regioesFrete[cepRegiao as keyof typeof regioesFrete]) {
-        setFrete(regioesFrete[cepRegiao as keyof typeof regioesFrete].valor)
-        setRegiao(regioesFrete[cepRegiao as keyof typeof regioesFrete].nome)
+      if (regioesFrete[cepRegiao]) {
+        setFrete(regioesFrete[cepRegiao].valor)
+        setRegiao(regioesFrete[cepRegiao].nome)
       } else {
         setFrete(20.0)
         setRegiao("Outras regiões")
@@ -259,7 +376,7 @@ export default function AdegaCardapio() {
 
           {/* Category Tabs */}
           <div className="overflow-x-auto mb-8">
-            <div className="flex space-x-2 min-w-max">
+            <div className="flex space-x-2 min-w-max pb-2">
               {categories.map((category) => (
                 <Button
                   key={category.id}
@@ -284,7 +401,13 @@ export default function AdegaCardapio() {
               <Card key={product.id} className="bg-gray-900 border-gray-800 hover:border-yellow-400 transition-colors">
                 <CardHeader className="p-3 lg:p-4">
                   <div className="aspect-square relative mb-3 lg:mb-4 bg-gray-800 rounded-lg overflow-hidden">
-                    <Image src={product.image || "/placeholder.svg"} alt={product.name} fill className="object-cover" />
+                    <Image
+                      src={product.image || "/placeholder.svg"}
+                      alt={product.name}
+                      fill
+                      className="object-cover"
+                      unoptimized
+                    />
                   </div>
                   <CardTitle className="text-white text-base lg:text-lg line-clamp-2">{product.name}</CardTitle>
                   <CardDescription className="text-gray-400 text-sm line-clamp-2">
